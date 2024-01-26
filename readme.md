@@ -60,7 +60,11 @@ sudo wg-quick up wg0
 ```
 sudo systemctl enable wg-quick@wg0
 ```
+### 允許udp
+```
+sudo ufw allow 51820/udp
 
+```
 ## 2. 配置ubuntu客户端
 ### 2.1. 安装 WireGuard
 在 Ubuntu 上，你可以使用 apt 包管理器安装 WireGuard：
@@ -85,7 +89,7 @@ sudo nano /etc/wireguard/wg0.conf
 [Interface]
 PrivateKey = <你的私钥>
 Address = 10.0.0.2/32
-DNS = 1.1.1.1
+DNS = 114.114.114.114
 
 [Peer]
 PublicKey = <服务器的公钥>
