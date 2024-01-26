@@ -34,7 +34,7 @@ PrivateKey = <服务器私钥>  # 将 <服务器私钥> 替换为你的私钥内
 ```
 [Peer]
 PublicKey = <客户端公钥>
-AllowedIPs = 10.0.0.2/24  # 客户端的 VPN IP 地址
+AllowedIPs = 10.0.0.2/32  # 客户端的 VPN IP 地址
 ```
 每个客户端都应该有唯一的 AllowedIPs 设置。
 
@@ -84,13 +84,14 @@ sudo nano /etc/wireguard/wg0.conf
 ```
 [Interface]
 PrivateKey = <你的私钥>
-Address = 10.0.0.2/24
+Address = 10.0.0.2/32
 DNS = 1.1.1.1
 
 [Peer]
 PublicKey = <服务器的公钥>
 Endpoint = <服务器的IP地址>:51820
-AllowedIPs = 0.0.0.0/0
+//AllowedIPs = 0.0.0.0/0
+AllowedIPs = 10.0.0.0/24
 PersistentKeepalive = 25
 ```
 请确保将 <你的私钥>、<服务器的公钥> 和 <服务器的IP地址> 替换为实际的值。
